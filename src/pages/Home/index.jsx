@@ -3,8 +3,23 @@ import InputElement from "../../components/InputElement";
 import SelectElement from "../../components/SelectElement";
 import options from "./options";
 import "../../styles/Home.scss";
+// import { useEffect } from "react";
 
 function Home() {
+	// useEffect(() => {
+	// 	fetch("employees.json")
+	// 		.then((response) => {
+	// 			console.log(response);
+	// 			return response.json();
+	// 		})
+	// 		.then((data) => {
+	// 			console.log(data);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.error(error);
+	// 		});
+	// }, []);
+
 	const handleSubmit = (evt) => {
 		evt.preventDefault();
 		console.log(evt.target["firstName"].value);
@@ -19,16 +34,16 @@ function Home() {
 				<Link to="/employees">View Current Employees</Link>
 				<h2>Create Employee</h2>
 				<form action="POST" onSubmit={handleSubmit}>
-					<InputElement id="firstName" label="First Name" />
-					<InputElement id="lastName" label="Last Name" />
-					<InputElement id="birthDate" label="Date of Birth" />
-					<InputElement id="startDate" label="Start Date" />
+					<InputElement id="first-name" label="First Name" />
+					<InputElement id="last-name" label="Last Name" />
+					<InputElement id="date-of-birth" label="Date of Birth" />
+					<InputElement id="start-date" label="Start Date" />
 					<fieldset className="address">
 						<legend>Address</legend>
 						<InputElement id="street" label="Street" />
 						<InputElement id="city" label="City" />
 						<SelectElement id="state" label="State" options={options.states} />
-						<InputElement id="zip" label="Zip Code" />
+						<InputElement id="zip-code" label="Zip Code" />
 					</fieldset>
 					<SelectElement
 						id="department"

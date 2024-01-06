@@ -1,6 +1,6 @@
 import "../../styles/InputElement.scss";
 
-function InputElement({ id, type, label }) {
+function InputElement({ id, label, type }) {
 	return (
 		<div className="input-element">
 			<label htmlFor={id}>{label}</label>

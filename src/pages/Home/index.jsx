@@ -34,16 +34,16 @@ function Home() {
 				<Link to="/employees">View Current Employees</Link>
 				<h2>Create Employee</h2>
 				<form action="POST" onSubmit={handleSubmit}>
-					<InputElement id="first-name" label="First Name" />
-					<InputElement id="last-name" label="Last Name" />
-					<InputElement id="date-of-birth" label="Date of Birth" />
-					<InputElement id="start-date" label="Start Date" />
+					<InputElement id="first-name" label="First Name" type="text" />
+					<InputElement id="last-name" label="Last Name" type="text" />
+					<InputElement id="date-of-birth" label="Date of Birth" type="date" />
+					<InputElement id="start-date" label="Start Date" type="date" />
 					<fieldset className="address">
 						<legend>Address</legend>
-						<InputElement id="street" label="Street" />
-						<InputElement id="city" label="City" />
+						<InputElement id="street" label="Street" type="text" />
+						<InputElement id="city" label="City" type="text" />
 						<SelectElement id="state" label="State" options={options.states} />
-						<InputElement id="zip-code" label="Zip Code" />
+						<InputElement id="zip-code" label="Zip Code" type="number" />
 					</fieldset>
 					<SelectElement
 						id="department"

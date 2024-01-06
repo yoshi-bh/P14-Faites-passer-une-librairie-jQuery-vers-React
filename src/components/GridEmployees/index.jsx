@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useCallback, useRef } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 
 function GridEmployees() {
+	const gridRef = useRef();
 	// Row Data: The data to be displayed.
 	const [rowData, setRowData] = useState([
 		{
@@ -56,9 +57,27 @@ function GridEmployees() {
 		// ],
 	};
 
+	const [quickFilterText, setQuickFilterText] = useState("");
+	const onFilterTextBoxChanged = useCallback(() => {
+		setQuickFilterText(document.getElementById("filter-text-box").value);
+		// gridRef.current?.api.setGridOption(
+		// 	"quickFilterText",
+		// 	document.getElementById("filter-text-box").value
+		// );
+	}, []);
+
 	return (
 		// Container
 		<div className="ag-theme-quartz" style={{ width: 992 }}>
+			<div className="example-header">
+				<span>Search:</span>
+				<input
+					type="text"
+					id="filter-text-box"
+					placeholder="Filter..."
+					onInput={onFilterTextBoxChanged}
+				/>
+			</div>
 			{/* The AG Grid component */}
 			<AgGridReact
 				rowData={rowData}
@@ -66,6 +85,7 @@ function GridEmployees() {
 				autoSizeStrategy={autoSizeStrategy}
 				domLayout={"autoHeight"}
 				pagination={true}
+				quickFilterText={quickFilterText}
 			/>
 		</div>
 	);

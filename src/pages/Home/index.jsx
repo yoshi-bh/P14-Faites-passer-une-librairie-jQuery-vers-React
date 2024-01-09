@@ -1,11 +1,21 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { SimpleModal } from "oc-yoshi-modal-lib";
+import "oc-yoshi-modal-lib/dist/index.css";
 import InputElement from "../../components/InputElement";
 import SelectElement from "../../components/SelectElement";
+import { employeeSlice } from "../../utilities/employeeSlice";
 import options from "./options";
 import "../../styles/Home.scss";
 // import { useEffect } from "react";
 
 function Home() {
+	const dispatch = useDispatch();
+
+	const employees = useSelector((state) => state.employees);
+
+	const [modalIsOpen, setModalIsOpen] = useState(true);
 	// useEffect(() => {
 	// 	fetch("employees.json")
 	// 		.then((response) => {
@@ -22,7 +32,21 @@ function Home() {
 
 	const handleSubmit = (evt) => {
 		evt.preventDefault();
-		console.log(evt.target["firstName"].value);
+		console.log(evt.target["start-date"].value);
+		const newEmployee = {
+			id: employees.length,
+			"first-name": evt.target["first-name"].value,
+			"last-name": evt.target["last-name"].value,
+			"date-of-birth": evt.target["first-name"].value,
+			"start-date": evt.target["first-name"].value,
+			street: evt.target["first-name"].value,
+			city: evt.target["first-name"].value,
+			state: evt.target["first-name"].value,
+			"zip-code": evt.target["first-name"].value,
+			department: evt.target["first-name"].value,
+		};
+		dispatch(dispatch(employeeSlice.actions.addEmployee(newEmployee)));
+		setModalIsOpen(true);
 	};
 
 	return (
@@ -53,6 +77,12 @@ function Home() {
 					<button>Save</button>
 				</form>
 			</section>
+			{modalIsOpen ? (
+				<SimpleModal
+					onClickHandler={() => setModalIsOpen(false)}
+					text="Employee Created!"
+				/>
+			) : null}
 		</div>
 	);
 }

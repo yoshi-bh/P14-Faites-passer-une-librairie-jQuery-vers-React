@@ -8,7 +8,7 @@ function EmployeeList() {
 		<div className="employee-list">
 			<h1>Current Employees</h1>
 			<GridEmployees />
-			<Link to="/">Home</Link>
+			<Link to="/" className="home-btn">Home</Link>
 		</div>
 	);
 }

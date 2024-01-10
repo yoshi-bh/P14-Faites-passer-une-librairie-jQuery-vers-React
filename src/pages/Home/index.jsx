@@ -15,37 +15,26 @@ function Home() {
 
 	const employees = useSelector((state) => state.employees);
 
-	const [modalIsOpen, setModalIsOpen] = useState(true);
-	// useEffect(() => {
-	// 	fetch("employees.json")
-	// 		.then((response) => {
-	// 			console.log(response);
-	// 			return response.json();
-	// 		})
-	// 		.then((data) => {
-	// 			console.log(data);
-	// 		})
-	// 		.catch((error) => {
-	// 			console.error(error);
-	// 		});
-	// }, []);
+	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	const handleSubmit = (evt) => {
 		evt.preventDefault();
-		console.log(evt.target["start-date"].value);
+		// console.log(evt.target["department"].value);
 		const newEmployee = {
 			id: employees.length,
+			// id: evt.target["first-name"].value + "_id",
 			"first-name": evt.target["first-name"].value,
 			"last-name": evt.target["last-name"].value,
-			"date-of-birth": evt.target["first-name"].value,
-			"start-date": evt.target["first-name"].value,
-			street: evt.target["first-name"].value,
-			city: evt.target["first-name"].value,
-			state: evt.target["first-name"].value,
-			"zip-code": evt.target["first-name"].value,
-			department: evt.target["first-name"].value,
+			"date-of-birth": evt.target["date-of-birth"].value,
+			"start-date": evt.target["start-date"].value,
+			street: evt.target["street"].value,
+			city: evt.target["city"].value,
+			state: evt.target["state"].value,
+			"zip-code": evt.target["zip-code"].value,
+			department: evt.target["department"].value,
 		};
-		dispatch(dispatch(employeeSlice.actions.addEmployee(newEmployee)));
+		dispatch(employeeSlice.actions.addEmployee(newEmployee));
+		// console.log(employees);
 		setModalIsOpen(true);
 	};
 

@@ -1,0 +1,19 @@
+.search-container {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 10px;
+
+	input {
+		margin-left: 5px;
+	}
+}
+
+.ag-theme-alpine {
+  --ag-header-background-color: none;
+  --ag-header-column-separator-display: none;
+  --ag-header-column-resize-handle-display: none;
+
+	--ag-borders: none;
+	--ag-borders-critical: solid 1px;
+	--ag-border-color: black;
+}

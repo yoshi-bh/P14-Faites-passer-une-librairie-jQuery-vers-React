@@ -240,23 +240,23 @@ const states = [
 const departments = [
 	{
 		name: "Sales",
-		value: "",
+		value: "Sales",
 	},
 	{
 		name: "Marketing",
-		value: "",
+		value: "Marketing",
 	},
 	{
 		name: "Engineering",
-		value: "",
+		value: "Engineering",
 	},
 	{
 		name: "Human Resources",
-		value: "",
+		value: "Human Resources",
 	},
 	{
 		name: "Legal",
-		value: "",
+		value: "Legal",
 	},
 ];
 

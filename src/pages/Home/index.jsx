@@ -8,7 +8,12 @@ import SelectElement from "../../components/SelectElement";
 import { employeeSlice } from "../../utilities/employeeSlice";
 import options from "./options";
 import "../../styles/Home.scss";
-// import { useEffect } from "react";
+
+/* React Element to display the home page
+ * @params: none
+ * returns:
+ *    the JSX element of the page to be displayed
+ */
 
 function Home() {
 	const dispatch = useDispatch();
@@ -19,10 +24,8 @@ function Home() {
 
 	const handleSubmit = (evt) => {
 		evt.preventDefault();
-		// console.log(evt.target["department"].value);
 		const newEmployee = {
 			id: employees.length,
-			// id: evt.target["first-name"].value + "_id",
 			"first-name": evt.target["first-name"].value,
 			"last-name": evt.target["last-name"].value,
 			"date-of-birth": evt.target["date-of-birth"].value,
@@ -34,7 +37,6 @@ function Home() {
 			department: evt.target["department"].value,
 		};
 		dispatch(employeeSlice.actions.addEmployee(newEmployee));
-		// console.log(employees);
 		setModalIsOpen(true);
 	};
 

@@ -1,16 +1,20 @@
 import { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
-// import { employeeSlice } from "../../utilities/employeeSlice";
 import { AgGridReact } from "ag-grid-react";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import "../../styles/GridEmployees.scss";
 
+
+/* React Element to the grid with employees
+ * @params: none
+ * returns:
+ *    the JSX element of the grid to be displayed
+ */
+
 function GridEmployees() {
 	const employees = useSelector((state) => state.employees.employees);
-
-	// console.log(employees);
 
 	// Column Definitions: Defines & controls grid columns.
 	const colDefs = [

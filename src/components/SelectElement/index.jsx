@@ -1,25 +1,24 @@
 import "../../styles/SelectElement.scss";
 
+/* React Element to have formated select and label
+ * @params:
+ *    - id: the select id you want to use
+ *    - label: the text you want displayed in the label
+ * 		- options: a array of name/value pair as strings containing all your options
+ * returns:
+ *    the JSX element to be displayed containing label and select
+ */
+
 function SelectElement({ id, label, options }) {
 	return (
 		<div className="select-element">
 			<label htmlFor={id}>{label}</label>
 			<select name={id} id={id}>
 				{options.map((option) => (
-					<option key={id + option.name} value={option.value}>{option.name}</option>
-					// const option = document.createElement("option");
-					// option.value = state.abbreviation;
-					// option.text = state.name;
-					// stateSelect.appendChild(option);
+					<option key={id + option.name} value={option.value}>
+						{option.name}
+					</option>
 				))}
-				{/* {data.map((elem) => (
-					<Card
-						key={elem.id}
-						id={elem.id}
-						img={elem.cover}
-						title={elem.title}
-					></Card>
-				))} */}
 			</select>
 		</div>
 	);

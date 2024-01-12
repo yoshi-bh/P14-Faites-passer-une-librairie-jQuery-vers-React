@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import GridEmployees from "../../components/GridEmployees";
-// import data from "../../data/employees.json";
 import "../../styles/EmployeeList.scss";
+
+/* React Element to display the page containing all the employees data
+ * @params: none
+ * returns:
+ *    the JSX element of the page to be displayed
+ */
 
 function EmployeeList() {
 	return (

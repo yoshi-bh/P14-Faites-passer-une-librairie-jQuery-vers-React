@@ -1,5 +1,10 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 
+/* Reducer to manage employees' data
+ * initialState: the initial state to be used on app startup
+ * employeeSlice: the reducer, with params to set the initialState and the reducer to add new employees
+ */
+
 const initialState = {
 	employees: JSON.parse(localStorage.getItem("employees")) || [
 		{
